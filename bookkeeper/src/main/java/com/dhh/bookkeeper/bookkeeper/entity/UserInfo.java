@@ -10,8 +10,11 @@ import java.io.Serializable;
 
 
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 /**
@@ -26,6 +29,9 @@ import lombok.experimental.Accessors;
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 @TableName("user_info")
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserInfo extends Model<UserInfo> {
 
     private static final long serialVersionUID = 1L;
@@ -33,8 +39,8 @@ public class UserInfo extends Model<UserInfo> {
     /**
      * 用户id
      */
-    @TableId(value = "user_id", type = IdType.ID_WORKER_STR)
-    private Integer userId;
+    @TableId(value = "user_id", type = IdType.AUTO)
+    private Long userId;
     /**
      * 用户名
      */
@@ -51,6 +57,17 @@ public class UserInfo extends Model<UserInfo> {
     @TableField("login_flag")
     private String loginFlag;
 
+    /**
+     *用户openId
+     */
+    @TableField("open_id")
+    private String openId;
+
+    /**
+     * 用户微信账号
+     */
+    @TableField("wx_code")
+    private String wxCode;
 
     @Override
     protected Serializable pkVal() {

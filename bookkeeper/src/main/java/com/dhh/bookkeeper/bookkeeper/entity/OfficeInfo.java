@@ -9,8 +9,11 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 /**
@@ -25,6 +28,9 @@ import lombok.experimental.Accessors;
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 @TableName("office_info")
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class OfficeInfo extends Model<OfficeInfo> {
 
     private static final long serialVersionUID = 1L;
@@ -32,13 +38,13 @@ public class OfficeInfo extends Model<OfficeInfo> {
     /**
      * 房间id
      */
-    @TableId(value = "office_id", type = IdType.ID_WORKER_STR)
+    @TableId(value = "office_id", type = IdType.AUTO)
     private Long officeId;
     /**
      * 房间名称
      */
-    @TableField("office_name")
-    private String officeName;
+    @TableField("office_num")
+    private String officeNum;
     /**
      * 房间创建者
      */
@@ -53,7 +59,7 @@ public class OfficeInfo extends Model<OfficeInfo> {
      * 房间状态
      */
     @TableField("office_status")
-    private String officeStatus;
+    private Integer officeStatus;
     /**
      * 房间人数总和
      */

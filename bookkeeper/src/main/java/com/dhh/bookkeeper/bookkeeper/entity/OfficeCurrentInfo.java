@@ -10,8 +10,11 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 /**
@@ -26,6 +29,9 @@ import lombok.experimental.Accessors;
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 @TableName("office_current_info")
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class OfficeCurrentInfo extends Model<OfficeCurrentInfo> {
 
     private static final long serialVersionUID = 1L;
@@ -33,7 +39,7 @@ public class OfficeCurrentInfo extends Model<OfficeCurrentInfo> {
     /**
      * 房间流水信息id
      */
-    @TableId(value = "office_current_id", type = IdType.ID_WORKER_STR)
+    @TableId(value = "office_current_id", type = IdType.AUTO)
     private Long officeCurrentId;
     /**
      * 房间id

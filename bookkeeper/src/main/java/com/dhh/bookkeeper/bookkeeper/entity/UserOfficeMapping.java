@@ -6,8 +6,11 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
@@ -24,6 +27,9 @@ import java.io.Serializable;
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 @TableName("user_office_mapping")
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserOfficeMapping extends Model<UserOfficeMapping> {
 
     private static final long serialVersionUID = 1L;
@@ -31,7 +37,7 @@ public class UserOfficeMapping extends Model<UserOfficeMapping> {
     /**
      * 人员房间关联id
      */
-    @TableId(value = "user_office_id", type = IdType.ID_WORKER_STR)
+    @TableId(value = "user_office_id", type = IdType.AUTO)
     private Long userOfficeId;
     /**
      * 用户id

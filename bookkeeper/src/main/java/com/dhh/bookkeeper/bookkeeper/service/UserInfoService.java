@@ -2,6 +2,8 @@ package com.dhh.bookkeeper.bookkeeper.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.dhh.bookkeeper.bookkeeper.entity.UserInfo;
+import com.dhh.bookkeeper.bookkeeper.request.CreateOfficeParam;
+import com.dhh.bookkeeper.bookkeeper.request.UserInfoParam;
 
 /**
  * <p>
@@ -13,4 +15,10 @@ import com.dhh.bookkeeper.bookkeeper.entity.UserInfo;
  */
 public interface UserInfoService extends IService<UserInfo> {
 
+    /**
+     * 校验openid在用户表存不存在，不存在则插入数据，存在则更新数据
+     * @param param
+     * @return
+     */
+    Long checkUserinfo(UserInfoParam param);
 }
